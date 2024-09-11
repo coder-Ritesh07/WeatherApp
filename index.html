@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container-section h-full w-full bg-cyan-200">
+        <!-- nav bar section start here -->
+      <nav class="h-20 bg-slate-800 flex flex-row justify-between items-center px-5">
+        <section class="logo">
+            <h1 class="md:text-3xl text-xl font-bold text-white">Weather <span class="md:text-4xl text-2xl text-white bg-cyan-600 px-2 rounded-[5px] font-bold">App</span></h1>
+        </section>
+        <section class="btn-section">
+
+        </section>
+      </nav>
+       <!-- main section start here -->
+       <main class="max-w-[95%] h-screen  my-0 mx-auto flex flex-col justify-center items-center lg:gap-11  md:gap-10 gap-5">
+        <section class="weather-forcast-section flex flex-wrap justify-center items-center lg:gap-11 md:gap-10 gap-5">
+
+           <!-- Search Section start here -->
+            <section class="md:h-[400px] lg:w-[600px] lg:h-[450px] min-[425px]:w-[380px] h-[300px] md:w-[600px] w-[300px] bg-white md:mt-[80px] mt-[80px] rounded-md flex flex-col items-center  ">
+                <div class="search-city flex flex-col items-center justify-center  lg:mt-[50px] md:mt-[40px] mt-[20px]">
+                    <label for="cityname" class="md:text-3xl lg:text-4xl text-xl font-bold">Enter Your City Name-</label>
+                    <input type="text" id="cityname" placeholder="Enter Your City" class="md:w-[400px] lg:w-[450px] min-[425px]:w-[300px] w-[250px] md:h-[40px] lg:h-[50px] h-[30px] mt-5 rounded-md focus:outline-none focus:shadow-shadowbox md:text-2xl lg:text-3xl text-[1rem] font-semibold md:pl-2 pl-1 border-2 border-solid border-cyan-600 ">
+                    <button id="searchbtn" class="md:mt-[20px] lg:mt-[30px] min-[425px]:w-[300px] mt-[20px] bg-cyan-600 md:w-[400px] lg:w-[450px] w-[250px] md:h-[50px] lg:h-[55px] h-[30px] rounded-full md:text-[1.7rem] lg:text-[1.9rem] text-[1.2rem] font-semibold text-white">Search</button>
+                      <span class="md:text-2xl lg:text-3xl text-[1rem] font-bold md:mt-[15px] lg:mt-[20px] mt-[10px]">OR</span>
+                      <button id="usecur" class="md:mt-[10px] lg:mt-[15px] min-[425px]:w-[300px] mt-[5px] bg-cyan-600 md:w-[400px] lg:w-[450px] w-[250px] md:h-[50px] lg:h-[55px] h-[30px] rounded-full md:text-[1.7rem] text-[1rem] font-semibold text-white">Use Current Location</button>
+                </div>
+            </section>
+            <!-- search section end here -->
+    
+    
+          <!-- Details section here -->
+            <section class="hidden detail-section lg:w-[600px] lg:h-[450px] md:w-[600px] min-[425px]:w-[380px] min-[425px]:h-[300px] w-[300px]  md:h-[400px] h-[250px] bg-white md:mt-[80px] mt-[100px] rounded-md flex-col items-center ">
+                <div class="">
+                    <h2 class="text-center md:text-[1.7rem] min-[425px]:text-[1.4rem] lg:text-[1.6rem] text-[1.1rem] font-bold " id="citynameheading">Dubai</h2>
+                    <span class="text-center md:text-[1.4rem] lg:text-[1.5rem] min-[425px]:text-[1.11rem] text-[1rem] font-bold bg-cyan-600 text-white rounded-sm md:px-1 lg:px-2 px-[2px]" id="date">Mon 9/9/2024</span>
+                    <div class="text-center flex flex-row justify-center items-center gap-x-3" id="description-section">
+                        
+                    </div>
+                </div>
+                <div class="temp-section flex justify-center">
+                    
+                    <span class="text-center md:text-[5rem] min-[425px]:text-[3rem] text-[2rem] font-bold" id="temp">23°</span>
+                </div>
+                <div class="other-details flex flex-row md:gap-5 gap-2">
+                    <div class="md:h-[150px] min-[425px]:h-[100px] h-[80px] md:w-[160px] min-[425px]:w-[110px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col md:justify-center justify-end"><i class="fa-solid fa-wind md:text-fontsize min-[425px]:text-[30px] text-[20px]"></i>
+                        <span class="md:text-2xl min-[425px]:text-[1.1rem] text-[1rem] font-semibold" id="wind">3.06km/h</span>
+                        <span class="md:text-xl min-[425px]:text-[1.1rem] text-[1rem]">Wind</span>
+                    </div>
+                    <div class="md:h-[150px] min-[425px]:h-[100px] h-[80px] w-[80px] min-[425px]:w-[110px] md:w-[160px] bg-slate-300 rounded-md text-center  flex flex-col md:justify-center justify-end"><i class="fa-sharp-duotone fa-solid fa-droplet min-[425px]:text-[30px] md:text-fontsize text-[20px]"></i>
+                        <span class="md:text-2xl min-[425px]:text-[1.1rem] text-[1rem] font-semibold" id="humidity">56%</span>
+                        <span class="md:text-xl min-[425px]:text-[1.1rem] text-[1rem]">Humidity</span>
+                    </div>
+                    <div class="md:h-[150px] min-[425px]:h-[100px] h-[80px] w-[80px] min-[425px]:w-[110px] md:w-[160px] bg-slate-300 rounded-md text-center flex flex-col md:justify-center justify-end"><i class="fa-solid fa-eye md:text-fontsize min-[425px]:text-[30px] text-[20px]"></i>
+                        <span class="md:text-2xl min-[425px]:text-[1.1rem] text-[1rem] font-semibold " id="visibility">10km</span>
+                        <span class="md:text-xl min-[425px]:text-[1.1rem] text-[1rem]">Visibility </span>
+                    </div>
+                </div>
+            </section>
+            <!-- Details Section end here -->
+            
+        </section>
+      
+
+
+             <!-- 5days Forcast Heading Section -->
+             <h2 class="headingof5days hidden md:text-3xl min-[425px]:text-[1.7rem] lg:text-4xl text-2xl font-bold">5 days Forcast</h2>
+         
+             <!-- Fivedays Forcast Card section Start here -->
+        <Section class="fivedaysforcast  hidden  flex-row flex-wrap md:gap-5 lg:gap-6 gap-3 justify-center">
+             <!-- Card one section here -->
+            <section class=" fivedaysdetail-se9ion md:w-[400px] min-[425px]:w-[310px] w-[280px] h-[240px] md:h-[300px] min-[425px]:h-[280px] bg-white mt-[20px] rounded-md flex flex-col items-center ">
+                <div class="">
+                    <h2 class="text-center md:text-[1.7rem] min-[425px]:text-[1.3rem] text-[1.2rem] font-bold " id="citynamefor1">Loading..</h2>
+                    <span class="text-center md:text-[1.4rem] min-[425px]:text-[1.2rem] text-[1rem] font-bold bg-cyan-600 text-white rounded-sm md:px-1 px-[1px]" id="datefor1">Loading..</span>
+                    <div class="text-center flex flex-row justify-center items-center md:gap-x-3 gap-x-1.5" id="description-sectionfor1">
+                        
+                    </div>
+                </div>
+                <div class="temp-section flex justify-center">
+                    
+                    <span class="text-center md:text-[4rem] min-[425px]:text-[2.5rem] text-[2rem] font-bold" id="tempfo1">Loading....</span>
+                </div>
+                <div class="other-details flex flex-row md:gap-5 min-[425px]:gap-3 gap-2.5">
+                    <div class="md:h-[90px]  h-[80px] w-[80px] md:w-[100px]  bg-slate-300 rounded-md text-center  flex flex-col justify-center "><i class="fa-solid fa-wind md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="windfor1">Loading....</span>
+                        <span class="md:text-xl  min-[425px]:text-[18px] text-[1rem]">Wind</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px]  h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center"><i class="fa-sharp-duotone fa-solid fa-droplet md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl  min-[425px]:text-[18px] text-[1rem] font-semibold" id="humidityfor1">Loading....</span>
+                        <span class="md:text-xl  min-[425px]:text-[18px] text-[1rem]">Humidity</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px]  h-[80px] w-[80px] bg-slate-300 rounded-md text-center flex flex-col justify-center"><i class="fa-solid fa-eye md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl  min-[425px]:text-[18px] text-[1rem] font-semibold " id="visibilityfor1">Loading....</span>
+                        <span class="md:text-xl  min-[425px]:text-[18px] text-[1rem]">Visibility </span>
+                    </div>
+                </div>
+            </section>
+            <!-- card one end here -->
+
+            <!-- card two section here -->
+            <section class=" fivedaysdetail-se9ion md:w-[400px] min-[425px]:w-[310px] min-[425px]:h-[280px] md:h-[300px] w-[280px] h-[240px] bg-white mt-[20px] rounded-md flex flex-col items-center ">
+                <div class="">
+                    <h2 class="text-center md:text-[1.7rem] text-[1.2rem] font-bold min-[425px]:text-[1.3rem] " id="citynamefor2">Loading....</h2>
+                    <span class="text-center md:text-[1.4rem] min-[425px]:text-[1.2rem] text-[1rem] font-bold bg-cyan-600 text-white rounded-sm md:px-1 px-[1px]" id="datefor2">Loading....</span>
+                    <div class="text-center flex flex-row justify-center items-center md:gap-x-3 gap-x-1.5" id="description-sectionfor2">
+                      
+                    </div>
+                </div>
+                <div class="temp-section flex justify-center">
+                    
+                    <span class="text-center md:text-[4rem]  min-[425px]:text-[2.5rem] text-[2rem] font-bold" id="tempfor2">Loading....</span>
+                </div>
+                <div class="other-details flex flex-row md:gap-5 min-[425px]:gap-3 gap-2.5">
+                    <div class="md:h-[90px] md:w-[100px]  h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center "><i class="fa-solid fa-wind md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="windfor2">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Wind</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px]  h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center"><i class="fa-sharp-duotone fa-solid fa-droplet md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="humidityfor2">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Humidity</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px]  h-[80px] w-[80px] bg-slate-300 rounded-md text-center flex flex-col justify-center"><i class="fa-solid fa-eye md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold " id="visibilityfor2">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Visibility </span>
+                    </div>
+                </div>
+            </section>
+           <!-- card two end here -->
+
+            <!-- card three section here -->
+            <section class=" fivedaysdetail-se9ion md:w-[400px] md:h-[300px] min-[425px]:w-[310px] min-[425px]:h-[280px]  w-[280px] h-[240px] bg-white mt-[20px] rounded-md flex flex-col items-center ">
+                <div class="">
+                    <h2 class="text-center md:text-[1.7rem] text-[1.2rem] font-bold min-[425px]:text-[1.3rem] " id="citynamefor3">Loading....</h2>
+                    <span class="text-center md:text-[1.4rem] text-[1rem] font-bold bg-cyan-600 min-[425px]:text-[1.2rem] text-white rounded-sm md:px-1 px-[1px]" id="datefor3">Loading....</span>
+                    <div class="text-center flex flex-row justify-center items-center md:gap-x-3 gap-x-1.5" id="description-sectionfor3">
+                        
+                    </div>
+                </div>
+                <div class="temp-section flex justify-center">
+                    
+                    <span class="text-center md:text-[4rem] min-[425px]:text-[2.5rem] text-[2rem] font-bold" id="tempfor3">Loading....</span>
+                </div>
+                <div class="other-details flex flex-row md:gap-5 min-[425px]:gap-3 gap-2.5">
+                    <div class="md:h-[90px]  md:w-[100px] h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center "><i class="fa-solid fa-wind md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="windfor3">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Wind</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px]  h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center"><i class="fa-sharp-duotone fa-solid fa-droplet md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="humidityfor3">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Humidity</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px]  h-[80px] w-[80px] bg-slate-300 rounded-md text-center flex flex-col justify-center"><i class="fa-solid fa-eye md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold " id="visibilityfor3">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Visibility </span>
+                    </div>
+                </div>
+            </section>
+            <!-- card three end here -->
+
+            <!-- card four section strt here -->
+            <section class=" fivedaysdetail-se9ion md:w-[400px]  md:h-[300px] min-[425px]:w-[310px] min-[425px]:h-[280px] w-[280px] h-[240px] bg-white mt-[20px] rounded-md flex flex-col items-center ">
+                <div class="">
+                    <h2 class="text-center md:text-[1.7rem] text-[1.2rem] font-bold min-[425px]:text-[1.3rem] " id="citynamefor4">Loading....</h2>
+                    <span class="text-center md:text-[1.4rem] text-[1rem] font-bold bg-cyan-600 min-[425px]:text-[1.2rem] text-white rounded-sm md:px-1 px-[1px]" id="datefor4">Loading....</span>
+                    <div class="text-center flex flex-row justify-center items-center md:gap-x-3 gap-x-1.5" id="description-sectionfor4">
+                    
+                    </div>
+                </div>
+                <div class="temp-section flex justify-center">
+                    
+                    <span class="text-center md:text-[4rem] text-[2remmd:]  min-[425px]:text-[2.5rem] font-bold" id="tempfor4">Loading....</span>
+                </div>
+                <div class="other-details flex flex-row md:gap-5  min-[425px]:gap-3 gap-2.5">
+                    <div class="md:h-[90px] md:w-[100px] h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center "><i class="fa-solid fa-wind md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="windfor4">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Wind</span> 
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px] h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center"><i class="fa-sharp-duotone fa-solid fa-droplet md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="humidityfor4">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Humidity</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px] h-[80px] w-[80px] bg-slate-300 rounded-md text-center flex flex-col justify-center"><i class="fa-solid fa-eye md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold " id="visibilityfor4">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Visibility </span>
+                    </div>
+                </div>
+            </section>
+             <!-- card four section end here -->
+
+           <!-- card five section here -->
+            <section class=" fivedaysdetail-se9ion md:w-[400px] md:h-[300px] min-[425px]:w-[310px] min-[425px]:h-[280px] w-[280px] h-[240px] bg-white mt-[20px] rounded-md flex flex-col items-center ">
+                <div class="">
+                    <h2 class="text-center md:text-[1.7rem] text-[1.2rem] font-bold min-[425px]:text-[1.3rem] " id="citynamefor5">Loading....</h2>
+                    <span class="text-center md:text-[1.4rem] text-[1rem] font-bold bg-cyan-600 text-white rounded-sm md:px-1 px-[1px] min-[425px]:text-[1.2rem]" id="datefor5">Loading....</span>
+                    <div class="text-center flex flex-row justify-center items-center md:gap-x-3 gap-x-1.5" id="description-sectionfor5">
+                      
+                    </div>
+                </div>
+                <div class="temp-section flex justify-center">
+                    
+                    <span class="text-center md:text-[4rem] text-[2rem] min-[425px]:text-[2.5rem] font-bold" id="tempfor5">Loading....</span>
+                </div>
+                <div class="other-details flex flex-row md:gap-5 min-[425px]:gap-3 gap-2.5">
+                    <div class="md:h-[90px] md:w-[100px]  h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center "><i class="fa-solid fa-wind md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="windfor5">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Wind</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px] h-[80px] w-[80px] bg-slate-300 rounded-md text-center  flex flex-col justify-center"><i class="fa-sharp-duotone fa-solid fa-droplet md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold" id="humidityfor5">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Humidity</span>
+                    </div>
+                    <div class="md:h-[90px] md:w-[100px] h-[80px] w-[80px] bg-slate-300 rounded-md text-center flex flex-col justify-center"><i class="fa-solid fa-eye md:text-[30px] min-[425px]:text-[22px] text-[20px]"></i>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem] font-semibold " id="visibilityfor5">Loading....</span>
+                        <span class="md:text-xl min-[425px]:text-[18px] text-[1rem]">Visibility </span> 
+                    </div>
+                </div>
+            </section>
+            <!-- card five section end here -->
+        </Section>
+      </main> 
+      <!-- main section end here -->
+
+
+     <!-- <section class="footer-section h-screen flex items-end"> -->
+         <footer class="md:h-[180px] h-[100px] w-full bg-slate-700 mt-[80px]  flex md:flex-row flex-col items-center md:justify-between md:items-end md:p-5 p-1">
+           <section class="logo">
+               <h1 class="md:text-2xl text-[1.2rem]  font-bold text-white">Weather <span class="md:text-3xl text-xl text-white bg-cyan-600 px-2 rounded-[5px] font-bold">App</span></h1>
+           </section>
+           <section>
+               <p class="md:text-2xl text-[1rem] font-semibold text-white ">Powered by Ritesh </p>
+           </section>
+         </footer>
+     <!-- </section> -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
