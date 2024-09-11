@@ -15,13 +15,13 @@ let headingof5days=document.querySelector(".headingof5days")
 let main=document.querySelector("main");
 
 
+// by usign the search button user can easily see the city weather forcast
 searchbtn.addEventListener("click",()=>{
     
     if(searchbox.value===""){
         alert("Please enter a city name");
         location.reload();
     }
-    // main.classList.remove("h-screen")
     let cityname=searchbox.value.trim();
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=${apikey}`).then((res)=>{
         return res.json()
@@ -33,12 +33,11 @@ searchbtn.addEventListener("click",()=>{
     
 })
 
-
+// Update the cityname box Ui
 function updateUi(data){
     main.classList.remove("h-screen")
    detailsSection.classList.remove("hidden");
    detailsSection.classList.add("flex");
-//    console.log(data);
    headingof5days.classList.remove("hidden")
    fivedaysforcastsection.classList.remove("hidden")
    fivedaysforcastsection.classList.add("flex")
@@ -52,7 +51,6 @@ function updateUi(data){
    visibility.innerHTML=data.visibility/1000+"Km";
    let des=data.weather[0].description;
    let strdate=new Date();
-   //    console.log(strdate.toDateString)
    date.innerHTML=strdate.toDateString()
    let weathericon=getWetherIcon(data.weather[0].main)
    descriptionicon.innerHTML=` <i class="material-icons" id="icons">${weathericon}</i><span class="text-xl font-semibold" id="description">${des}</span>`
@@ -63,7 +61,7 @@ function updateUi(data){
    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apikey}`).then((res)=>{
     return res.json()
    }).then((res)=>{
-    console.log(res)
+    // if the user enter the city name then its show the 5days forcast by using this 5methods
     updateUiCityForcastOne(res)
     updateUiCityForcastTwo(res)
     updateUiCityForcastThree(res)
@@ -74,7 +72,7 @@ function updateUi(data){
    })
 }
 
-
+// function calling one
 function updateUiCityForcastOne(data){
     let city=document.querySelector("#citynamefor1");
     let date=document.querySelector("#datefor1");
@@ -96,7 +94,7 @@ function updateUiCityForcastOne(data){
    descriptionicon.innerHTML=` <i class="material-icons" id="icons">${weathericon}</i><span class="text-xl font-semibold" id="description">${des}</span>`
 }
 
-
+// function calling two
 function updateUiCityForcastTwo(data){
     let city=document.querySelector("#citynamefor2");
     let date=document.querySelector("#datefor2");
@@ -118,6 +116,7 @@ function updateUiCityForcastTwo(data){
    descriptionicon.innerHTML=` <i class="material-icons" id="icons">${weathericon}</i><span class="text-xl font-semibold" id="description">${des}</span>`
 }
 
+// function calling three
 function updateUiCityForcastThree(data){
     let city=document.querySelector("#citynamefor3");
     let date=document.querySelector("#datefor3");
@@ -141,7 +140,7 @@ function updateUiCityForcastThree(data){
 }
 
 
-
+// function calling four
 function updateUiCityForcastFour(data){
     let city=document.querySelector("#citynamefor4");
     let date=document.querySelector("#datefor4");
@@ -152,7 +151,6 @@ function updateUiCityForcastFour(data){
     let visibility=document.querySelector("#visibilityfor4")
 
 
-    
     city.innerHTML=data.city.name;
     date.innerHTML=data.list[27].dt_txt;
     temp.innerHTML=Math.floor(data.list[27].main.temp)+"°"
@@ -166,7 +164,7 @@ function updateUiCityForcastFour(data){
 }
 
 
-
+// function calling five
 function updateUiCityForcastFive(data){
     let city=document.querySelector("#citynamefor5");
     let date=document.querySelector("#datefor5");
@@ -177,7 +175,6 @@ function updateUiCityForcastFive(data){
     let visibility=document.querySelector("#visibilityfor5")
 
 
-    
     city.innerHTML=data.city.name;
     date.innerHTML=data.list[35].dt_txt;
     temp.innerHTML=Math.floor(data.list[35].main.temp)+"°"
@@ -185,7 +182,7 @@ function updateUiCityForcastFive(data){
     humidity.innerHTML=data.list[35].main.humidity+"%";
     visibility.innerHTML=data.list[35].visibility/1000+"Km";
     let des=data.list[35].weather[0].description;
-
+    //  calling the icons section
      let weathericon=getWetherIcon(data.list[35].weather[0].main)
    descriptionicon.innerHTML=` <i class="material-icons" id="icons">${weathericon}</i><span class="text-xl font-semibold" id="description">${des}</span>`
 }
@@ -193,7 +190,7 @@ function updateUiCityForcastFive(data){
 
 
 
-
+// according to the weather it's update the icons
 function getWetherIcon(wethericon){
    let icons={
     Clear:"wb_sunny",
@@ -210,6 +207,8 @@ function getWetherIcon(wethericon){
 
    return icons[wethericon] || "help";
 }
+
+
 // =====================================================================================================================================
 // Use Current Location Of User Start coding Here
 
@@ -243,6 +242,8 @@ function getFetchDataFromUsingCurrentLocation(lat,lon){
     })
 }
 
+
+// update the UI when user click the current location
 function updateUiForFiveDays(data){
      console.log(data);
      main.classList.remove("h-screen")
@@ -269,12 +270,15 @@ function updateUiForFiveDays(data){
     updateUiforCardTwo(data);
     // card 3 forcast Update
     updateUiforCardThree(data);
+    // card 4 forcast Update
     updateUiforCardFour(data);
+    // card 5 forcast Update
     updateUiforCardFive(data);
 
 }
 
 
+// function calling one for card update
 function updateUiforCardOne(data){
      let city=document.querySelector("#citynamefor1");
      let date=document.querySelector("#datefor1");
@@ -298,7 +302,7 @@ function updateUiforCardOne(data){
 }
 
 
-
+// function calling two for card update
 function updateUiforCardTwo(data){
     let city=document.querySelector("#citynamefor2");
     let date=document.querySelector("#datefor2");
@@ -323,6 +327,7 @@ function updateUiforCardTwo(data){
 }
 
 
+// function calling three for card update
 function updateUiforCardThree(data){
     let city=document.querySelector("#citynamefor3");
     let date=document.querySelector("#datefor3");
@@ -347,6 +352,7 @@ function updateUiforCardThree(data){
 }
 
 
+// function calling four for card update
 function updateUiforCardFour(data){
     let city=document.querySelector("#citynamefor4");
     let date=document.querySelector("#datefor4");
@@ -371,6 +377,7 @@ function updateUiforCardFour(data){
 }
 
 
+// function calling five for card update
 function updateUiforCardFive(data){
     let city=document.querySelector("#citynamefor5");
     let date=document.querySelector("#datefor5");
