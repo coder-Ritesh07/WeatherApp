@@ -1,0 +1,1 @@
+# This is a Weather Forcast App for User, By using the city name user can easily see the city forcast with 5days extended forcast but by using the Current Location of user can easily see the current location weaather with five days extended forcast.it is very user friendly interface for user, user can easily understand interface.
